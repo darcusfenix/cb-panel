@@ -1,8 +1,8 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class TipoUsuario {
 
-    String descripcion;
+    String descripcion
 
     static constraints = {
     }
@@ -11,5 +11,7 @@ class TipoUsuario {
         table 'ct_tipo_usuario'
         id column: 'id_tipo', generator: 'identity'
         descripcion column: 'descripcion'
+        version false
     }
+    static mapWith = "none"
 }

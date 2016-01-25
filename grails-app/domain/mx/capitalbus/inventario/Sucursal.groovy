@@ -1,15 +1,15 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class Sucursal {
 
-    Socio socio;
-    User usuario;
-    String nombreSucursal;
-    String nombreResponsable;
-    String apellidoResponsable;
-    String genero;
-    Date fechaNacimiento;
-    String direccion;
+    Socio socio
+    User usuario
+    String nombreSucursal
+    String nombreResponsable
+    String apellidoResponsable
+    String genero
+    Date fechaNacimiento
+    String direccion
 
     static constraints = {
     }
@@ -26,4 +26,5 @@ class Sucursal {
         direccion column: 'direccion'
         version false
     }
+    static mapWith = "none"
 }

@@ -1,20 +1,22 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class Vendedor {
 
-    Sucursal sucursal;
-    String nombres;
-    String apellidos;
-    Date fechaNacimiento;
-    String direccion;
-    String telefono;
+    //Sucursal sucursal;
+    String nombres
+    String apellidos
+    Date fechaNacimiento
+    String direccion
+    String telefono
+
+    //static belongsTo = [vendedor: Pulsera];
 
     static constraints = {
     }
     static mapping = {
         table 'ct_vendedor'
         id column: 'id_vendedor', generator: 'identity'
-        sucursal column: 'id_sucursal'
+      //  sucursal column: 'id_sucursal'
         nombres column: 'nombres'
         apellidos column: 'apellidos'
         fechaNacimiento column: 'fecha_nacimiento'
@@ -22,4 +24,9 @@ class Vendedor {
         telefono column: 'telefono'
         version false
     }
+    //static mapWith = "none"
+
+    static mappedBy = [pulsera: 'vendedor']
+
+
 }

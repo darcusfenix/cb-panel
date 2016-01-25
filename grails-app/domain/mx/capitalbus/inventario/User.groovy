@@ -1,16 +1,16 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class User {
 
-    Integer id;
-    TipoUsuario tipoUsuario;
-    String correo;
-    String password;
-    Date fechaCreacion;
-    String urlFoto;
-    String verificacion;
-    boolean activo;
-    String permisos;
+    Integer id
+    TipoUsuario tipoUsuario
+    String correo
+    String password
+    Date fechaCreacion
+    String urlFoto
+    String verificacion
+    boolean activo
+    String permisos
 
 
     static constraints = {
@@ -30,4 +30,5 @@ class User {
         permisos column: 'permisos'
         version false
     }
+    static mapWith = "none"
 }

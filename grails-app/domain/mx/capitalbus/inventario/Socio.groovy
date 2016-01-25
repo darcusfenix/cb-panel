@@ -1,12 +1,12 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class Socio{
     User id
-    String empresa;
-    String nombres;
-    String apellidos;
-    String telefono;
-    Float comision;
+    String empresa
+    String nombres
+    String apellidos
+    String telefono
+    Float comision
 
     static constraints = {
     }
@@ -20,4 +20,5 @@ class Socio{
         comision column: 'comision'
         version false
     }
+    static mapWith = "none"
 }

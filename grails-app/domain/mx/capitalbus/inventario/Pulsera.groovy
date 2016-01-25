@@ -1,11 +1,11 @@
-package capitalbus
+package mx.capitalbus.inventario
 
 class Pulsera {
 
-    String codigo;
-    PulseraStatus status;
-    Date fechaActivacion;
-    Vendedor vendedor;
+    String codigo
+    Date fechaActivacion
+    //Vendedor vendedor
+    static belongsTo = [status: PulseraStatus, vendedor : Vendedor];
 
 
     static constraints = {
@@ -24,4 +24,5 @@ class Pulsera {
         vendedor column: 'vendedor'
         version false
     }
+
 }
