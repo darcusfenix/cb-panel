@@ -1,6 +1,7 @@
 package capitalbus
 
 import grails.test.mixin.TestFor
+import mx.capitalbus.inventario.PulseraStatus
 import spock.lang.Specification
 
 /**
