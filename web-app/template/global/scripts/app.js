@@ -11,7 +11,7 @@ var App = function() {
 
     var resizeHandlers = [];
 
-    var assetsPath = '../assets/';
+    var assetsPath = BASE_RESOURCES+ '/';
 
     var globalImgPath = 'global/img/';
 
