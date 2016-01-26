@@ -14,6 +14,7 @@ class MainController {
     }
     def pulseras(){
         def vendedor =  Vendedor.findById(179)
+        log.error(vendedor)
         if (vendedor != null)
             render Pulsera.findAllByVendedor(vendedor) as JSON
         else{
