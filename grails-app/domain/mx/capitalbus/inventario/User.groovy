@@ -17,7 +17,7 @@ class User {
     }
 
     static mapping = {
-        //tablePerHierarchy false
+        tablePerHierarchy false
         table 'ct_usuario'
         id column: 'id_usuario', generator: 'identity'
         tipoUsuario column: 'id_tipo'
@@ -30,5 +30,5 @@ class User {
         permisos column: 'permisos'
         version false
     }
-    static mapWith = "none"
+ //   static mapWith = "none"
 }

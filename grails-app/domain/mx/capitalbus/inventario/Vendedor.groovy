@@ -1,6 +1,6 @@
 package mx.capitalbus.inventario
 
-class Vendedor {
+class Vendedor extends User{
 
     //Sucursal sucursal;
     String nombres

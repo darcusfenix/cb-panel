@@ -13,5 +13,4 @@ class TipoUsuario {
         descripcion column: 'descripcion'
         version false
     }
-    static mapWith = "none"
 }
