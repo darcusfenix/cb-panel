@@ -5,7 +5,7 @@
  * We want to perform a OR.
  */
 
-angular.module('MetronicApp').filter('propsFilter', function() {
+angular.module('CapitalBusApp').filter('propsFilter', function() {
     return function(items, props) {
         var out = [];
 
@@ -36,7 +36,7 @@ angular.module('MetronicApp').filter('propsFilter', function() {
     };
 });
 
-angular.module('MetronicApp').controller('UISelectController', function($scope, $http, $timeout) {
+angular.module('CapitalBusApp').controller('UISelectController', function($scope, $http, $timeout) {
     $scope.$on('$viewContentLoaded', function() {
         App.initAjax(); // initialize core components
     });
