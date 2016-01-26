@@ -1,122 +1,127 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+<html lang="en" data-ng-app="MetronicApp">
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
+<head>
+	<title data-ng-bind="Captalbus"></title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
 
-			#status li {
-				line-height: 1.3;
-			}
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/plugins/font-awesome/css', file: 'font-awesome.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/plugins/simple-line-icons', file: 'simple-line-icons.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/plugins/bootstrap/css', file: 'bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/plugins/uniform/css', file: 'uniform.default.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/plugins/bootstrap-switch/css', file: 'bootstrap-switch.min.css')}" rel="stylesheet" type="text/css" />
+	<!-- END GLOBAL MANDATORY STYLES -->
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+	<!-- BEGIN DYMANICLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
+	<link id="ng_load_plugins_before" />
+	<!-- END DYMANICLY LOADED CSS FILES -->
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+	<!-- BEGIN THEME STYLES -->
+	<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
+	<link href="${resource(dir: 'template/global/css', file: 'components-rounded.min.css')}" id="style_components" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/global/css', file: 'plugins.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/layouts/layout4/css', file: 'layout.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'template/layouts/layout4/css/themes', file: 'light.min.css')}" rel="stylesheet" type="text/css" id="style_color" />
+	<link href="${resource(dir: 'template/layouts/layout4/css', file: 'custom.min.css')}" rel="stylesheet" type="text/css" />
+	<!-- END THEME STYLES -->
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+	<link rel="shortcut icon" href="favicon.ico" /> </head>
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
+<!-- BEGIN PAGE SPINNER -->
+<div ng-spinner-bar class="page-spinner-bar">
+	<div class="bounce1"></div>
+	<div class="bounce2"></div>
+	<div class="bounce3"></div>
+</div>
+<!-- END PAGE SPINNER -->
 
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
+<!-- BEGIN HEADER -->
+<div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top"> </div>
+<!-- END HEADER -->
+<div class="clearfix"> </div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	<!-- BEGIN SIDEBAR -->
+	<div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+	<!-- END SIDEBAR -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN PAGE HEAD -->
+			<div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head"> </div>
+			<!-- END PAGE HEAD -->
+			<!-- BEGIN ACTUAL CONTENT -->
+			<div ui-view class="fade-in-up"> </div>
+			<!-- END ACTUAL CONTENT -->
 		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails @CRISOSTOMO</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+	</div>
+	<!-- BEGIN QUICK SIDEBAR -->
+	<a href="javascript:;" class="page-quick-sidebar-toggler">
+		<i class="icon-login"></i>
+	</a>
+	<div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+	<!-- END QUICK SIDEBAR -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div data-ng-include="'tpl/footer.html'" data-ng-controller="FooterController" class="page-footer"> </div>
+<!-- END FOOTER -->
 
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+<!-- BEGIN CORE JQUERY PLUGINS -->
+
+
+<!--[if lt IE 9]>
+	<script src="${resource(dir: 'template/global/plugins', file: 'respond.min.js')}"></script>
+	<script src="${resource(dir: 'template/global/plugins', file: 'excanvas.min.js')}"></script>
+	<![endif]-->
+
+<script type="text/javascript">
+	var BASE_URL =  '/capitalbus/';
+	var BASE_RESOURCES =  'template';
+</script>
+
+<script src="${resource(dir: 'template/global/plugins', file: 'jquery.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins', file: 'jquery-migrate.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/bootstrap/js', file: 'bootstrap.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/bootstrap-hover-dropdown', file: 'bootstrap-hover-dropdown.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/jquery-slimscroll', file: 'jquery.slimscroll.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins', file: 'jquery.blockui.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins', file: 'jquery.cokie.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/uniform', file: 'jquery.uniform.min.js')}" type="text/javascript"></script>
+<!-- END CORE JQUERY PLUGINS -->
+
+<!-- BEGIN CORE ANGULARJS PLUGINS -->
+<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular-sanitize.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular-touch.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'plugins/angular-ui-router.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/angularjs/plugins', file: 'ocLazyLoad.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/global/plugins/angularjs/plugins', file: 'ui-bootstrap-tpls.min.js')}" type="text/javascript"></script>
+<!-- END CORE ANGULARJS PLUGINS -->
+
+<!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
+<script src="${resource(dir: 'js', file:'main.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'js', file:'directives.js')}" type="text/javascript"></script>
+<!-- END APP LEVEL ANGULARJS SCRIPTS -->
+
+<!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
+<script src="${resource(dir: 'template/global/scripts', file: 'app.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/layouts/layout4/scripts', file: 'layout.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/layouts/global/scripts', file: 'quick-sidebar.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'template/layouts/layout4/scripts', file: 'demo.min.js')}" type="text/javascript"></script>
+<!-- END APP LEVEL JQUERY SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
 </html>
