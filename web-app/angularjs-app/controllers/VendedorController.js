@@ -1,9 +1,10 @@
 /**
- * Created by grupo-becm on 1/25/16.
+ * Created by darcusfenix on 1/26/16.
  */
-angular.module('CapitalBusApp').controller('PulseraGenerarController', function($rootScope, $scope, $http, $timeout, Vendedor) {
+
+angular.module('CapitalBusApp').controller('VendedorShowController', function($rootScope, $scope, $http, $timeout, Vendedor) {
     $scope.$on('$viewContentLoaded', function() {
-       App.initAjax();
+        App.initAjax();
     });
     $scope.vendedorList = null;
     $scope.q = "@capitalbus.mx";
