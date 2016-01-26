@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-ng-app="MetronicApp">
+<html lang="en" data-ng-app="CapitalBusApp">
 
 <head>
 	<title data-ng-bind="Captalbus"></title>
@@ -12,11 +12,11 @@
 
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/plugins/font-awesome/css', file: 'font-awesome.min.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/plugins/simple-line-icons', file: 'simple-line-icons.min.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/plugins/bootstrap/css', file: 'bootstrap.min.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/plugins/uniform/css', file: 'uniform.default.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/plugins/bootstrap-switch/css', file: 'bootstrap-switch.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/plugins/font-awesome/css', file: 'font-awesome.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/plugins/simple-line-icons', file: 'simple-line-icons.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/plugins/bootstrap/css', file: 'bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/plugins/uniform/css', file: 'uniform.default.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/plugins/bootstrap-switch/css', file: 'bootstrap-switch.min.css')}" rel="stylesheet" type="text/css" />
 	<!-- END GLOBAL MANDATORY STYLES -->
 
 	<!-- BEGIN DYMANICLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
@@ -25,11 +25,11 @@
 
 	<!-- BEGIN THEME STYLES -->
 	<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
-	<link href="${resource(dir: 'template/global/css', file: 'components-rounded.min.css')}" id="style_components" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/global/css', file: 'plugins.min.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/layouts/layout4/css', file: 'layout.min.css')}" rel="stylesheet" type="text/css" />
-	<link href="${resource(dir: 'template/layouts/layout4/css/themes', file: 'light.min.css')}" rel="stylesheet" type="text/css" id="style_color" />
-	<link href="${resource(dir: 'template/layouts/layout4/css', file: 'custom.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/css', file: 'components-rounded.min.css')}" id="style_components" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/global/css', file: 'plugins.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/layouts/layout4/css', file: 'layout.min.css')}" rel="stylesheet" type="text/css" />
+	<link href="${resource(dir: 'rs/layouts/layout4/css/themes', file: 'light.min.css')}" rel="stylesheet" type="text/css" id="style_color" />
+	<link href="${resource(dir: 'rs/layouts/layout4/css', file: 'custom.min.css')}" rel="stylesheet" type="text/css" />
 	<!-- END THEME STYLES -->
 
 	<link rel="shortcut icon" href="favicon.ico" /> </head>
@@ -76,44 +76,58 @@
 
 
 <!--[if lt IE 9]>
-	<script src="${resource(dir: 'template/global/plugins', file: 'respond.min.js')}"></script>
-	<script src="${resource(dir: 'template/global/plugins', file: 'excanvas.min.js')}"></script>
+	<script src="${resource(dir: 'rs/global/plugins', file: 'respond.min.js')}"></script>
+	<script src="${resource(dir: 'rs/global/plugins', file: 'excanvas.min.js')}"></script>
 	<![endif]-->
 
 <script type="text/javascript">
 	var BASE_URL =  '/capitalbus/';
-	var BASE_RESOURCES =  'template';
+	var BASE_RESOURCES =  'rs';
 </script>
 
-<script src="${resource(dir: 'template/global/plugins', file: 'jquery.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins', file: 'jquery-migrate.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/bootstrap/js', file: 'bootstrap.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/bootstrap-hover-dropdown', file: 'bootstrap-hover-dropdown.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/jquery-slimscroll', file: 'jquery.slimscroll.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins', file: 'jquery.blockui.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins', file: 'jquery.cokie.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/uniform', file: 'jquery.uniform.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins', file: 'jquery.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins', file: 'jquery-migrate.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/bootstrap/js', file: 'bootstrap.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/bootstrap-hover-dropdown', file: 'bootstrap-hover-dropdown.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/jquery-slimscroll', file: 'jquery.slimscroll.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins', file: 'jquery.blockui.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins', file: 'jquery.cokie.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/uniform', file: 'jquery.uniform.min.js')}" type="text/javascript"></script>
 <!-- END CORE JQUERY PLUGINS -->
 
 <!-- BEGIN CORE ANGULARJS PLUGINS -->
-<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular-sanitize.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'angular-touch.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/angularjs', file: 'plugins/angular-ui-router.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/angularjs/plugins', file: 'ocLazyLoad.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/global/plugins/angularjs/plugins', file: 'ui-bootstrap-tpls.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'angular.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'angular-route.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'angular-resource.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'angular-sanitize.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'angular-touch.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs', file: 'plugins/angular-ui-router.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs/plugins', file: 'ocLazyLoad.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/plugins/angularjs/plugins', file: 'ui-bootstrap-tpls.min.js')}" type="text/javascript"></script>
 <!-- END CORE ANGULARJS PLUGINS -->
 
 <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
-<script src="${resource(dir: 'js', file:'main.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'js', file:'directives.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'angularjs-app', file:'App.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'angularjs-app/', file:'directives.js')}" type="text/javascript"></script>
+
+
+<script src="${resource(dir: 'angularjs-app/resources', file:'PulseraResource.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'angularjs-app/resources', file:'VendedorResource.js')}" type="text/javascript"></script>
+
+<script src="${resource(dir: 'angularjs-app/routes', file:'PulseraRoute.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'angularjs-app/routes', file:'VendedorRoute.js')}" type="text/javascript"></script>
+
+<script src="${resource(dir: 'angularjs-app/controllers', file:'VendedorController.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'angularjs-app/controllers', file:'PulseraController.js')}" type="text/javascript"></script>
+
+
 <!-- END APP LEVEL ANGULARJS SCRIPTS -->
 
 <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
-<script src="${resource(dir: 'template/global/scripts', file: 'app.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/layouts/layout4/scripts', file: 'layout.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/layouts/global/scripts', file: 'quick-sidebar.min.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'template/layouts/layout4/scripts', file: 'demo.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/global/scripts', file: 'app.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/layouts/layout4/scripts', file: 'layout.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/layouts/global/scripts', file: 'quick-sidebar.min.js')}" type="text/javascript"></script>
+<script src="${resource(dir: 'rs/layouts/layout4/scripts', file: 'demo.min.js')}" type="text/javascript"></script>
 <!-- END APP LEVEL JQUERY SCRIPTS -->
 <!-- END JAVASCRIPTS -->
 </body>
