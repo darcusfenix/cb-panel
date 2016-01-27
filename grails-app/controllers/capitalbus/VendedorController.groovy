@@ -11,6 +11,18 @@ class VendedorController {
     def show(Integer id){
         render(  Vendedor.findById(id ?: params.int("id")) as JSON)
     }
+    def get(Integer id){
+        def idTemp = id ?: params.int("id")
+        log.error("############################# ->" + idTemp)
+        def vendedor = Vendedor.findByIdAndTipoUsuarioAndActivo(idTemp, TipoUsuario.findById(4),true)
+        if (vendedor != null) {
+            render (vendedor as JSON);
+        }else {
+            response.status = 404
+            render([message: message(code: "vendedor.notFound")] as JSON)
+        }
+
+    }
     def email(String q){
         def search = q ?: params.int('q');
         def v = Vendedor.createCriteria()
