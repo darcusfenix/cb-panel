@@ -7,7 +7,7 @@ angular.module('CapitalBusApp').factory('Vendedor', function ($resource) {
     return $resource('vendedor/:id', {id: '@id'}, {
         get: {
             method: 'GET',
-            url: 'vendedor/show/:id'
+            url: 'vendedor/get/:id'
         },
         update: {
             method: 'PUT',
