@@ -1,8 +1,8 @@
-package capitalbus
+package mx.capitalbus.inventario.controller
 
 import grails.converters.JSON
-import mx.capitalbus.inventario.TipoUsuario
-import mx.capitalbus.inventario.Vendedor
+import mx.capitalbus.inventario.domain.TipoUsuario
+import mx.capitalbus.inventario.domain.Vendedor
 
 class VendedorController {
 
@@ -13,7 +13,7 @@ class VendedorController {
     }
     def get(Integer id){
         def idTemp = id ?: params.int("id")
-        log.error("############################# ->" + idTemp)
+        
         def vendedor = Vendedor.findByIdAndTipoUsuarioAndActivo(idTemp, TipoUsuario.findById(4),true)
         if (vendedor != null) {
             render (vendedor as JSON);

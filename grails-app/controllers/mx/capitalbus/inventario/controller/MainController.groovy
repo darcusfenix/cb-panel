@@ -1,9 +1,9 @@
-package capitalbus
+package mx.capitalbus.inventario.controller
 
 import grails.converters.JSON
-import mx.capitalbus.inventario.Pulsera
-import mx.capitalbus.inventario.PulseraStatus
-import mx.capitalbus.inventario.Vendedor
+import mx.capitalbus.inventario.domain.Pulsera
+import mx.capitalbus.inventario.domain.PulseraStatus
+import mx.capitalbus.inventario.domain.Vendedor
 
 class MainController {
 

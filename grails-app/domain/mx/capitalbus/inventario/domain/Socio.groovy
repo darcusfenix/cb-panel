@@ -1,4 +1,4 @@
-package mx.capitalbus.inventario
+package mx.capitalbus.inventario.domain
 
 class Socio{
     User id

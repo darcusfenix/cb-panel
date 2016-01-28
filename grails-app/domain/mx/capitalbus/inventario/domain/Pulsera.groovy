@@ -1,10 +1,9 @@
-package mx.capitalbus.inventario
+package mx.capitalbus.inventario.domain
 
 class Pulsera {
 
     String codigo
     Date fechaActivacion
-    //Vendedor vendedor
     static belongsTo = [status: PulseraStatus, vendedor : Vendedor];
 
 
