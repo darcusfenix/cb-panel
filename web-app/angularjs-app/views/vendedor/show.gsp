@@ -191,3 +191,58 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="row" ng-hide="error.flag">
+    <div class="col-md-8">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light bordered ">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart font-red"></i>
+                    <span class="caption-subject font-red bold uppercase">Reporte Pulseras</span>
+
+                </div>
+            </div>
+
+            <div class="portlet-body">
+                    <div class="row">
+                        <div class="table-scrollable table-scrollable-borderless">
+                            <table class="table table-hover table-light">
+                                <thead>
+                                <tr class="uppercase">
+                                    <th colspan="2" class="bold font-green">Tipo</th>
+                                    <th class="bold font-green">6 Hrs.</th>
+                                    <th class="bold font-green">12 Hrs.</th>
+                                    <th class="bold font-green">24 Hrs.</th>
+                                    <th class="text-center bold font-green">Total</th>
+                                </tr>
+                                </thead>
+                                <tr>
+                                    <th colspan="2" class="font-blue">Niño</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th class="text-center bold font-green">39</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="font-blue">Adulto</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th class="text-center bold font-green">39</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="font-blue">Total</th>
+                                    <th class="bold font-green">24</th>
+                                    <th class="bold font-green">26</th>
+                                    <th class="bold font-green">28</th>
+                                    <th class="text-center bold font-green">78</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+</div>
