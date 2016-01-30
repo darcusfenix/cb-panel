@@ -14,16 +14,11 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
                 return $ocLazyLoad.load({
                     name: 'CapitalBusApp',
                     insertBefore: '#ng_load_plugins_before',
-                    /*files: [
-                     BASE_RESOURCES +'/global/plugins/morris/morris.css',
-                     BASE_RESOURCES +'/global/plugins/morris/morris.min.js',
-                     BASE_RESOURCES +'/global/plugins/morris/raphael-min.js',
-                     BASE_RESOURCES +'/global/plugins/jquery.sparkline.min.js',
-
-                     BASE_RESOURCES +'/pages/scripts/dashboard.min.js',
-                     'js/controllers/DashboardController.js',
+                    files: [
+                        BASE_URL + 'angularjs-app/resources/CostoPulseraResource.js',
+                        BASE_URL + 'angularjs-app/resources/DuracionResource.js',
+                        BASE_URL + 'angularjs-app/resources/PersonaResource.js'
                      ]
-                     */
                 });
             }]
         }

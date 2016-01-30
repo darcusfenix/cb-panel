@@ -138,26 +138,26 @@
 </div>
 
 <div class="row" ng-hide="error.flag">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <!-- BEGIN PORTLET-->
         <div class="portlet light bordered ">
             <div class="portlet-title">
                 <div class="caption caption-md">
                     <i class="icon-bar-chart font-red"></i>
                     <span class="caption-subject font-red bold uppercase">Generar y Asignar Pulseras</span>
-
                 </div>
             </div>
 
             <div class="portlet-body">
                 <form role="form">
 
-                    <div class="row">
+                    <div class="row" ng-repeat="costo in costosList ">
                         <div class="col-md-12">
-                            <label class="col-md-2 control-label">Email</label>
+                            <label class="col-md-4 control-label">De {{costo[0] | currency}} para {{costo[1].id}} de {{costo[1].id}}
+                            </label>
                             <div class="input-group input-large">
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" placeholder=".input-medium">
+                                <div class="col-md-8">
+                                    <input type="number" class="form-control" placeholder=".input-medium">
                                 </div>
                             </div>
                         </div>
