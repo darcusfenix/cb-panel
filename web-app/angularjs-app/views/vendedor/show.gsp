@@ -211,40 +211,8 @@
                         <div class="row text-center">
                             <h4>Resumen de Pulseras a Generar y Asignar a: <b>{{vendedor.nombres}} {{vendedor.apellidos}}</b></h4>
                         </div>
-                        <div class="row">
-                            <div class="table-scrollable table-scrollable-borderless">
-                                <table class="table table-hover table-light">
-                                    <thead>
-                                    <tr class="uppercase">
-                                        <th class="bold font-green text-center"></th>
-                                        <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
-                                            {{duracion.duracion + (' Horas')}}
-                                        </th>
-                                        <th class="text-center bold font-green">Total</th>
-                                    </tr>
-                                    </thead>
+                        <div  data-ng-include="'angularjs-app/views/vendedor/resumen-generar.gsp'">
 
-                                    <tr ng-repeat="persona in personaList">
-                                        <th class="font-blue text-uppercase  text-center">{{persona.nombre}}</th>
-                                        <th class=" text-center" ng-repeat="duracion in duracionList">
-                                            {{ getTotalBetweenPersonaAndDuracion(persona.id, duracion.id) }}
-                                        </th>
-                                        <th class="text-center bold font-green">
-                                            {{ getTotalByPersona(persona.id) }}
-                                        </th>
-                                    </tr>
-
-                                    <tr>
-                                        <th class="font-blue text-uppercase  text-center">Total</th>
-                                        <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
-                                            {{ getTotalByDuracion(duracion.id) }}
-                                        </th>
-                                        <th class="text-center bold font-green">
-                                            {{ getTotalOfPulseras() }}
-                                        </th>
-                                    </tr>
-                                </table>
-                            </div>
                         </div>
                         <div class="row text-right">
 
@@ -288,42 +256,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Confirmar</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="table-scrollable table-scrollable-borderless">
-                        <table class="table table-hover table-light">
-                            <thead>
-                            <tr class="uppercase">
-                                <th class="bold font-green text-center"></th>
-                                <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
-                                    {{duracion.duracion + (' Horas')}}
-                                </th>
-                                <th class="text-center bold font-green">Total</th>
-                            </tr>
-                            </thead>
-
-                            <tr ng-repeat="persona in personaList">
-                                <th class="font-blue text-uppercase  text-center">{{persona.nombre}}</th>
-                                <th class=" text-center" ng-repeat="duracion in duracionList">
-                                    {{ getTotalBetweenPersonaAndDuracion(persona.id, duracion.id) }}
-                                </th>
-                                <th class="text-center bold font-green">
-                                    {{ getTotalByPersona(persona.id) }}
-                                </th>
-                            </tr>
-
-                            <tr>
-                                <th class="font-blue text-uppercase  text-center">Total</th>
-                                <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
-                                    {{ getTotalByDuracion(duracion.id) }}
-                                </th>
-                                <th class="text-center bold font-green">
-                                    {{ getTotalOfPulseras() }}
-                                </th>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div class="modal-body" data-ng-include="'angularjs-app/views/vendedor/resumen-generar.gsp'">
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn red" >Cancelar</button>
