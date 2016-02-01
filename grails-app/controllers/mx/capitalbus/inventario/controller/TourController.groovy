@@ -6,6 +6,6 @@ import mx.capitalbus.inventario.domain.Tour
 class TourController {
 
     def index() {
-        render (Tour.list() as JSON)
+        render(Tour.list() as JSON)
     }
 }

@@ -9,8 +9,8 @@ import mx.capitalbus.inventario.domain.Persona
 class CostoPulseraController {
 
     def index() {
-        def costos =  CostoPulsera.executeQuery("SELECT cp.precio, cp.duracionPersona from CostoPulsera cp")
-        render( costos as JSON)
+        def costos = CostoPulsera.executeQuery("SELECT cp.precio, cp.duracionPersona from CostoPulsera cp")
+        render(costos as JSON)
     }
 
 

@@ -6,6 +6,6 @@ import mx.capitalbus.inventario.domain.Duracion
 class DuracionController {
 
     def index() {
-        render (Duracion.list() as JSON)
+        render(Duracion.list() as JSON)
     }
 }

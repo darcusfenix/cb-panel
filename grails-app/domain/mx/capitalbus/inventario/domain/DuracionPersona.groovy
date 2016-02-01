@@ -2,7 +2,7 @@ package mx.capitalbus.inventario.domain
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-class DuracionPersona implements Serializable{
+class DuracionPersona implements Serializable {
 
     Persona persona
     Duracion duracion

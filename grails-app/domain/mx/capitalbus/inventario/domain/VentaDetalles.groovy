@@ -6,7 +6,7 @@ class VentaDetalles {
     float comisionSocio
     float comisionConcierge
 
-    static belongsTo = [venta: Venta, pulsera : Pulsera];
+    static belongsTo = [venta: Venta, pulsera: Pulsera];
 
     static constraints = {
     }
