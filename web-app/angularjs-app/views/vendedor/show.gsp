@@ -138,7 +138,7 @@
 </div>
 
 <div class="row" ng-hide="error.flag">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <!-- BEGIN PORTLET-->
         <div class="portlet light bordered ">
             <div class="portlet-title">
@@ -148,22 +148,109 @@
                 </div>
             </div>
 
-            <div class="portlet-body">
-                <form role="form">
-
-                    <div class="row" ng-repeat="costo in costosList ">
-                        <div class="col-md-12">
-                            <label class="col-md-4 control-label">De {{costo[0] | currency}} para {{costo[1].id}} de {{costo[1].id}}
+            <div class="portlet-body form">
+                <div class="row form-horizontal">
+                    <div class="col-md-5 form-body">
+                        <div class="row text-center">
+                            <h4>Seleccione las opciones para modificar cantidad:</h4>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Persona: <span class="text-danger">*</span>
                             </label>
-                            <div class="input-group input-large">
-                                <div class="col-md-8">
-                                    <input type="number" class="form-control" placeholder=".input-medium">
-                                </div>
+                            <div class="col-md-9">
+                                <select ng-init="personaList[0].id"
+                                        ng-model="idPersona"
+                                        ng-options=" persona.id as persona.nombre for persona in personaList "
+                                        ng-change="updateCosto()"
+                                        required class="form-control text-uppercase">
+                                </select>
                             </div>
+                        </div>
+
+                        <div class="form-group {{alerta.flag ? 'has-error' : ''}}">
+                            <label class="col-md-3 control-label">Duración: <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-9">
+                                <select ng-init="duracionList[0].id"
+                                        ng-model="idDuracion"
+                                        ng-options=" duracion.id as (duracion.duracion + '  Horas') for duracion in duracionList "
+                                        ng-change="updateCosto()"
+                                        required class="form-control text-uppercase">
+                                </select>
+                                <span class="help-block" ng-show="alerta.flag"> {{alerta.message}} </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Costo:
+                            </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" value="{{ costo  | currency}}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Cantidad de Pulseras:
+                            </label>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control" value="0" ng-model="cantidad" min="1" step="1">
+                            </div>
+                        </div>
+
+                        <div class="form-actions text-right">
+                            <a  type="button"
+                               class="btn btn-success green"
+                               ng-disabled="cantidad <= 0 || alerta.flag"
+                               ng-hide="cantidad <= 0 || alerta.flag"
+                                ng-click="preparConfirmacion()"
+                                data-toggle="modal" href="#static">Añadir</a>
                         </div>
                     </div>
 
-                </form>
+                    <div class="col-md-7">
+                        <div class="row text-center">
+                            <h4>Resumen de Pulseras a Generar y Asignar a: <b>{{vendedor.nombres}} {{vendedor.apellidos}}</b></h4>
+                        </div>
+                        <div class="row">
+                            <div class="table-scrollable table-scrollable-borderless">
+                                <table class="table table-hover table-light">
+                                    <thead>
+                                    <tr class="uppercase">
+                                        <th class="bold font-green text-center"></th>
+                                        <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
+                                            {{duracion.duracion + (' Horas')}}
+                                        </th>
+                                        <th class="text-center bold font-green">Total</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tr ng-repeat="persona in personaList">
+                                        <th class="font-blue text-uppercase  text-center">{{persona.nombre}}</th>
+                                        <th class=" text-center" ng-repeat="duracion in duracionList">
+                                            {{ getTotalBetweenPersonaAndDuracion(persona.id, duracion.id) }}
+                                        </th>
+                                        <th class="text-center bold font-green">
+                                            {{ getTotalByPersona(persona.id) }}
+                                        </th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="font-blue text-uppercase  text-center">Total</th>
+                                        <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
+                                            {{ getTotalByDuracion(duracion.id) }}
+                                        </th>
+                                        <th class="text-center bold font-green">
+                                            {{ getTotalOfPulseras() }}
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-success" ng-click="generarPulseras()">Generar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END PORTLET-->
@@ -171,25 +258,22 @@
 </div>
 
 
-<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Confirmación:</h4>
+                <h4 class="modal-title">Aviso</h4>
             </div>
-
-            <div class="modal-body">Se van a generar pulseras para: <b>{{vendedor.nombres}} {{vendedor.apellidos}}</b>
+            <div class="modal-body">
+                <p> {{confirmacion}} </p>
             </div>
-
             <div class="modal-footer">
-                <button type="button" class="btn red btn-outline" data-dismiss="modal">No, Cancelar</button>
-                <button type="button" class="btn green" data-dismiss="modal">ok, generar</button>
+                <button type="button" data-dismiss="modal" class="btn red" >Cancelar</button>
+                <button type="button" data-dismiss="modal" class="btn green" ng-click="sumarPulseras()">Ok</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 
 <div class="row" ng-hide="error.flag">
@@ -205,42 +289,42 @@
             </div>
 
             <div class="portlet-body">
-                    <div class="row">
-                        <div class="table-scrollable table-scrollable-borderless">
-                            <table class="table table-hover table-light">
-                                <thead>
-                                <tr class="uppercase">
-                                    <th colspan="2" class="bold font-green">Tipo</th>
-                                    <th class="bold font-green">6 Hrs.</th>
-                                    <th class="bold font-green">12 Hrs.</th>
-                                    <th class="bold font-green">24 Hrs.</th>
-                                    <th class="text-center bold font-green">Total</th>
-                                </tr>
-                                </thead>
-                                <tr>
-                                    <th colspan="2" class="font-blue">Niño</th>
-                                    <th>12</th>
-                                    <th>13</th>
-                                    <th>14</th>
-                                    <th class="text-center bold font-green">39</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2" class="font-blue">Adulto</th>
-                                    <th>12</th>
-                                    <th>13</th>
-                                    <th>14</th>
-                                    <th class="text-center bold font-green">39</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2" class="font-blue">Total</th>
-                                    <th class="bold font-green">24</th>
-                                    <th class="bold font-green">26</th>
-                                    <th class="bold font-green">28</th>
-                                    <th class="text-center bold font-green">78</th>
-                                </tr>
-                            </table>
-                        </div>
+                <div class="row">
+                    <div class="table-scrollable table-scrollable-borderless">
+                        <table class="table table-hover table-light">
+                            <thead>
+                            <tr class="uppercase">
+                                <th colspan="2" class="bold font-green">Tipo</th>
+                                <th class="bold font-green">6 Hrs.</th>
+                                <th class="bold font-green">12 Hrs.</th>
+                                <th class="bold font-green">24 Hrs.</th>
+                                <th class="text-center bold font-green">Total</th>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <th colspan="2" class="font-blue">Niño</th>
+                                <th>12</th>
+                                <th>13</th>
+                                <th>14</th>
+                                <th class="text-center bold font-green">39</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="font-blue">Adulto</th>
+                                <th>12</th>
+                                <th>13</th>
+                                <th>14</th>
+                                <th class="text-center bold font-green">39</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="font-blue">Total</th>
+                                <th class="bold font-green">24</th>
+                                <th class="bold font-green">26</th>
+                                <th class="bold font-green">28</th>
+                                <th class="text-center bold font-green">78</th>
+                            </tr>
+                        </table>
                     </div>
+                </div>
             </div>
         </div>
         <!-- END PORTLET-->

@@ -3,26 +3,27 @@
  */
 
 angular.module('CapitalBusApp').factory('Pulsera', function ($resource) {
-    return $resource('answer/:id', {id: '@id'}, {
+    return $resource('pulsera/:id', {id: '@id'}, {
         get: {
             method: 'GET',
-            url: 'answer/show/:id'
+            url: 'pulsera/show/:id'
         },
         update: {
             method: 'PUT',
-            url: 'answer/update/'
+            url: 'pulsera/update/'
         },
         delete: {
             method: 'DELETE',
-            url: 'answer/delete/:id'
+            url: 'pulsera/delete/:id'
         },
         create: {
             method: 'GET',
-            url: 'answer/create/'
+            url: 'pulsera/create/'
         },
         save: {
             method: 'POST',
-            url: 'answer/save'
+            url: 'pulsera/save'
         }
+
     });
 });
