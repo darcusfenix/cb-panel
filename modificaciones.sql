@@ -1,5 +1,5 @@
 use capital;
-
+/*
 ALTER TABLE `capital`.`ct_pulcera` 
 ADD COLUMN `vendedor` INT(10) UNSIGNED NULL AFTER `fecha_activacion`;
 
@@ -7,7 +7,7 @@ ADD COLUMN `vendedor` INT(10) UNSIGNED NULL AFTER `fecha_activacion`;
 ALTER TABLE ct_pulcera
   ADD CONSTRAINT fk_ct_pulcera_ct_vendedor FOREIGN KEY (vendedor) 
   REFERENCES ct_vendedor (id_vendedor) ON DELETE NO ACTION ON UPDATE NO ACTION;
-  
+  */
 CREATE TABLE `capital`.`ct_persona` (
   `id_persona` INT NOT NULL,
   `nombre` VARCHAR(255) NOT NULL,
@@ -95,4 +95,5 @@ INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(130.0,2,1);
 INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(180.0,2,2);
 INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(250.0,2,3);
 
+ALTER TABLE `capital`.`ct_pulcera` ADD COLUMN `fecha_creacion` date NULL AFTER `costo`;
 
