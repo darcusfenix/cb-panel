@@ -5,7 +5,7 @@ var CapitalBusApp = angular.module("CapitalBusApp", [
     "ui.router",
     "ui.bootstrap",
     "oc.lazyLoad",
-    "ngSanitize",
+    "ngSanitize"
 ]);
 
 
@@ -122,7 +122,7 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
         url: "/",
         templateUrl: "angularjs-app/views/index/index.gsp",
         data: {pageTitle: 'Panel Inventario Vendedores'},
-        controller: "IndexController",
+        controller: "IndexController"
     });
 
 }]);

@@ -71,17 +71,13 @@
 <!-- END DASHBOARD STATS -->
 
 <div class="row center">
-    <div class="col-md-6 form col-md-offset-3">
+    <div class="col-md-8 form col-md-offset-2">
         <form role="form">
             <div class="form-body">
                 <div class="form-group">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="Escriba un correo o nombres del Vendedor" ng-model="q" required ng-trim="true" ng-change="getVendedores()" onfocus="true">
-                        <div class="loader">
-                            <center>
-                                <img class="loading-image" src="loading.jpg" alt="loading..">
-                            </center>
-                        </div>
+
                         <span class="input-group-btn">
                             <button class="btn green" type="button">Ir!</button>
                         </span>
@@ -99,7 +95,7 @@
 </div>
 
 <div class="row" ng-hide="vendedorList == null || vendedorList <= 0">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
         <!-- BEGIN PORTLET-->
         <div class="portlet light bordered ">
             <div class="portlet-title">
