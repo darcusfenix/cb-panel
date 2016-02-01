@@ -77,6 +77,11 @@
                 <div class="form-group">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="Escriba un correo o nombres del Vendedor" ng-model="q" required ng-trim="true" ng-change="getVendedores()" onfocus="true">
+                        <div class="loader">
+                            <center>
+                                <img class="loading-image" src="loading.jpg" alt="loading..">
+                            </center>
+                        </div>
                         <span class="input-group-btn">
                             <button class="btn green" type="button">Ir!</button>
                         </span>
@@ -150,7 +155,6 @@
                             <th class="bold font-green">Correo</th>
                             <th class="bold font-green">Teléfono</th>
                             <th class="text-center bold font-green">Historial</th>
-                            <th class="text-center bold font-green">Opciones</th>
                         </tr>
                         </thead>
                         <tr ng-repeat="vendedor in vendedorList|filter:filtro">
@@ -165,9 +169,7 @@
                             <td class="text-center">
                                 <a href="#/vendedor/{{vendedor.id}}/historial" class="btn btn-success">Ver historial</a>
                             </td>
-                            <td class="text-center">
-                                <a href="#/vendedor/{{vendedor.id}}/generar" class="btn btn-danger">Generar Pulseras</a>
-                            </td>
+
                         </tr>
 
                     </table>
@@ -177,3 +179,4 @@
         <!-- END PORTLET-->
     </div>
 </div>
+<script 
