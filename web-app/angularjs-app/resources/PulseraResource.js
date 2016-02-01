@@ -24,6 +24,5 @@ angular.module('CapitalBusApp').factory('Pulsera', function ($resource) {
             method: 'POST',
             url: 'pulsera/save'
         }
-
     });
 });

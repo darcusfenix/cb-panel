@@ -108,6 +108,12 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
                 " para " + $scope.getNameOfPersona($scope.idPersona) + " de " + $scope.getHorasOfDuracion($scope.idDuracion) + " horas ?.";
         };
 
+        $scope.resetValoresPulseras = function () {
+            for (var i = 0; i < $scope.pulseraList.length; i++) {
+                $scope.pulseraList[i].cantidad = 0;
+            }
+        };
+
         $scope.prepararEnvio = function () {
             for (var i = 0; i < $scope.costosList.length; i++) {
                 $scope.pulsera = {
@@ -200,28 +206,24 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
         });
 
         $scope.generarPulseras = function () {
+
+            App.blockUI({boxed:!0, message:"Generando y Asignando pulseras a "+$scope.vendedor.nombres +" "+ $scope.vendedor.apellidos+"..."});
+
             $scope.pulseraInstance.$save({
                 "json": $scope.generarJSON(),
                 "idVendedor": $stateParams.id
-            }, function (data, status, headers, config) {
-console.log(data);
-/*
+            }, function (data) {
+                App.unblockUI();
+                $scope.resetValoresPulseras();
                 var anchor = angular.element('<a/>');
                 anchor.attr({
-                    href: 'data:attachment/csv;charset=utf-8,' + (data),
+                    href: 'data:text/csv;charset=utf-8,' + encodeURIComponent(data.text),
                     target: '_blank',
-                    download: 'filename.csv'
+                    download: $scope.vendedor.nombres +'-'+ $scope.vendedor.apellidos + '.csv'
                 })[0].click();
 
-*/
-                var hiddenElement = document.createElement('a');
-
-                hiddenElement.href = 'data:text/csv,' + data;
-                hiddenElement.target = '_blank';
-                hiddenElement.download = 'myFile.csv';
-                hiddenElement.click();
             }, function (err) {
-                console.log(err)
+                App.unblockUI();
             });
         };
         $scope.generarJSON = function () {
@@ -232,5 +234,6 @@ console.log(data);
                     json += ','
             }
             return json + ']';
-        }
+        };
+
     });

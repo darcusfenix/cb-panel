@@ -246,8 +246,14 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <button class="btn btn-success" ng-click="generarPulseras()">Generar</button>
+                        <div class="row text-right">
+
+                            <a  type="button"
+                                class="btn btn-success green"
+                                ng-disabled="getTotalOfPulseras() == 0"
+                                ng-hide=" getTotalOfPulseras() == 0"
+                                ng-click="null"
+                                data-toggle="modal" href="#generar">Generar</a>
                         </div>
                     </div>
                 </div>
@@ -275,58 +281,54 @@
         </div>
     </div>
 </div>
-
-<div class="row" ng-hide="error.flag">
-    <div class="col-md-8">
-        <!-- BEGIN PORTLET-->
-        <div class="portlet light bordered ">
-            <div class="portlet-title">
-                <div class="caption caption-md">
-                    <i class="icon-bar-chart font-red"></i>
-                    <span class="caption-subject font-red bold uppercase">Reporte Pulseras</span>
-
-                </div>
+<div id="generar" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Confirmar</h4>
             </div>
-
-            <div class="portlet-body">
+            <div class="modal-body">
                 <div class="row">
                     <div class="table-scrollable table-scrollable-borderless">
                         <table class="table table-hover table-light">
                             <thead>
                             <tr class="uppercase">
-                                <th colspan="2" class="bold font-green">Tipo</th>
-                                <th class="bold font-green">6 Hrs.</th>
-                                <th class="bold font-green">12 Hrs.</th>
-                                <th class="bold font-green">24 Hrs.</th>
+                                <th class="bold font-green text-center"></th>
+                                <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
+                                    {{duracion.duracion + (' Horas')}}
+                                </th>
                                 <th class="text-center bold font-green">Total</th>
                             </tr>
                             </thead>
-                            <tr>
-                                <th colspan="2" class="font-blue">Niño</th>
-                                <th>12</th>
-                                <th>13</th>
-                                <th>14</th>
-                                <th class="text-center bold font-green">39</th>
+
+                            <tr ng-repeat="persona in personaList">
+                                <th class="font-blue text-uppercase  text-center">{{persona.nombre}}</th>
+                                <th class=" text-center" ng-repeat="duracion in duracionList">
+                                    {{ getTotalBetweenPersonaAndDuracion(persona.id, duracion.id) }}
+                                </th>
+                                <th class="text-center bold font-green">
+                                    {{ getTotalByPersona(persona.id) }}
+                                </th>
                             </tr>
+
                             <tr>
-                                <th colspan="2" class="font-blue">Adulto</th>
-                                <th>12</th>
-                                <th>13</th>
-                                <th>14</th>
-                                <th class="text-center bold font-green">39</th>
-                            </tr>
-                            <tr>
-                                <th colspan="2" class="font-blue">Total</th>
-                                <th class="bold font-green">24</th>
-                                <th class="bold font-green">26</th>
-                                <th class="bold font-green">28</th>
-                                <th class="text-center bold font-green">78</th>
+                                <th class="font-blue text-uppercase  text-center">Total</th>
+                                <th class="bold font-green text-center" ng-repeat="duracion in duracionList">
+                                    {{ getTotalByDuracion(duracion.id) }}
+                                </th>
+                                <th class="text-center bold font-green">
+                                    {{ getTotalOfPulseras() }}
+                                </th>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn red" >Cancelar</button>
+                <button type="button" data-dismiss="modal" class="btn green" ng-click="generarPulseras()">Sí, generar</button>
+            </div>
         </div>
-        <!-- END PORTLET-->
     </div>
 </div>
