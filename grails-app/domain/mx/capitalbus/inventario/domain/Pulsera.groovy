@@ -4,7 +4,7 @@ class Pulsera {
 
     String codigo
     Date fechaActivacion
-    static belongsTo = [status: PulseraStatus, vendedor : Vendedor];
+    static belongsTo = [status: PulseraStatus, vendedor : Vendedor, costoPulsera : CostoPulsera];
 
 
     static constraints = {
@@ -21,6 +21,7 @@ class Pulsera {
         status column: 'id_status_pulcera'
         fechaActivacion column: 'fecha_activacion'
         vendedor column: 'vendedor'
+        costoPulsera column: 'costo'
         version false
     }
 

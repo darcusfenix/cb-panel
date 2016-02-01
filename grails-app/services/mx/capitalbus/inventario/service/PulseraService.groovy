@@ -1,6 +1,7 @@
 package mx.capitalbus.inventario.service
 
 import grails.transaction.Transactional
+import mx.capitalbus.inventario.domain.CostoPulsera
 import mx.capitalbus.inventario.domain.Pulsera
 import mx.capitalbus.inventario.domain.PulseraStatus
 import mx.capitalbus.inventario.domain.Vendedor
@@ -11,25 +12,30 @@ class PulseraService {
     def sessionFactory
     def grailsApplication
 
-    def generatePulseras(Integer np, Vendedor v) {
-        def sp = getLastAutoIncrementPulsera();
-        def map = "id_pulsera,codigo \n";
+    def generatePulseras(Map objeto, Vendedor v) {
+
+        def map = "id_pulsera,codigo,tipo \n";
         PulseraStatus ps = PulseraStatus.findById(2)
-        for(int i = sp; i< sp + np; i++ ){
-            int idCod = i * 3;
-            def codeEncrypted = encodeId (idCod)
-            Pulsera pulsera = new Pulsera()
-            pulsera.codigo = codeEncrypted
-            pulsera.status = ps
-            pulsera.vendedor = v
 
+        objeto.each { w ->
+            def sp = getLastAutoIncrementPulsera();
+            for(int i = sp; i< sp + w.value; i++ ){
+                int idCod = i * 3;
+                def codeEncrypted = encodeId (idCod)
+                Pulsera pulsera = new Pulsera()
+                pulsera.codigo = codeEncrypted
+                pulsera.status = ps
+                pulsera.vendedor = v
+                pulsera.costoPulsera = CostoPulsera.findById(w.key)
 
-            if (pulsera.validate()) {
-                pulsera.save(flush: true)
-                if (pulsera.id != null)
-                    map += pulsera.id +","+pulsera.codigo.toLowerCase() +"\n"
+                if (pulsera.validate()) {
+                    pulsera.save(flush: true)
+                    if (pulsera.id != null)
+                        map += pulsera.id +","+pulsera.codigo.toLowerCase() + "," + pulsera.costoPulsera.id +"\n"
+                }
             }
         }
+
         map
     }
     private String encodeId(int id){

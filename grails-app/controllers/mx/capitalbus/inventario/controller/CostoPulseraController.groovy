@@ -9,9 +9,9 @@ import mx.capitalbus.inventario.domain.Persona
 class CostoPulseraController {
 
     def index() {
-        def costos = CostoPulsera.executeQuery("SELECT cp.precio, cp.duracionPersona from CostoPulsera cp")
+        //todo Debido a un error entre db y mapeo de grails se manda como array de objetos
+        def costos = CostoPulsera.executeQuery("SELECT cp.id, cp.precio, cp.duracionPersona from CostoPulsera cp")
         render(costos as JSON)
     }
-
 
 }
