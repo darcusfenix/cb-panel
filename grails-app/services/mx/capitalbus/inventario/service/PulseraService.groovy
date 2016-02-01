@@ -14,8 +14,9 @@ class PulseraService {
 
     def generatePulseras(Map objeto, Vendedor v) {
 
-        def map = "id_pulsera,codigo,tipo \n";
+        def map = "id_pulsera,codigo,tipo,vendedor,fecha_creacion\n";
         PulseraStatus ps = PulseraStatus.findById(2)
+        def fecha = new Date()
 
         objeto.each { w ->
             def sp = getLastAutoIncrementPulsera();
@@ -27,11 +28,13 @@ class PulseraService {
                 pulsera.status = ps
                 pulsera.vendedor = v
                 pulsera.costoPulsera = CostoPulsera.findById(w.key)
+                pulsera.fechaCreacion = fecha
 
                 if (pulsera.validate()) {
                     pulsera.save(flush: true)
-                    if (pulsera.id != null)
-                        map += pulsera.id +","+pulsera.codigo.toLowerCase() + "," + pulsera.costoPulsera.id +"\n"
+                    if (pulsera.id != null){
+                        map += pulsera.id +","+pulsera.codigo.toLowerCase().trim() + "," + pulsera.costoPulsera.id + "," + pulsera.vendedor.id + "," + pulsera.fechaCreacion  + "\n"
+                    }
                 }
             }
         }
@@ -39,7 +42,7 @@ class PulseraService {
         map
     }
     private String encodeId(int id){
-        id.encodeAsMD5().encodeAsSHA1().substring(2, 12)
+        id.encodeAsMD5().encodeAsSHA1().substring(0, 10)
     }
 
     private String getDatabaseSchema(){

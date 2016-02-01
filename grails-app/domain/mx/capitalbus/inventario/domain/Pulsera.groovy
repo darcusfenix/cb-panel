@@ -4,6 +4,7 @@ class Pulsera {
 
     String codigo
     Date fechaActivacion
+    Date fechaCreacion
     static belongsTo = [status: PulseraStatus, vendedor : Vendedor, costoPulsera : CostoPulsera];
 
 
@@ -22,6 +23,7 @@ class Pulsera {
         fechaActivacion column: 'fecha_activacion'
         vendedor column: 'vendedor'
         costoPulsera column: 'costo'
+        fechaCreacion column: 'fecha_creacion'
         version false
     }
 

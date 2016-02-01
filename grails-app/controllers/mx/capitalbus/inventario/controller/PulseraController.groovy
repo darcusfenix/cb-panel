@@ -51,8 +51,7 @@ class PulseraController {
 
             //response.setHeader("Content-disposition", "attachment; filename="+v.nombres+"-"+v.apellidos+".csv")
             //render(contentType: "text/csv", text:mapCVS )
-            render(text:mapCVS )
-
+            render( [text : mapCVS + ""] as JSON )
         }else {
             response.status = 404
             render([message: message(code: "vendedor.notFound")] as JSON)
