@@ -77,11 +77,6 @@
                 <div class="form-group">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="Escriba un correo o nombres del Vendedor" ng-model="q" required ng-trim="true" ng-change="getVendedores()" onfocus="true">
-                        <div class="loader">
-                            <center>
-                                <img class="loading-image" src="loading.jpg" alt="loading..">
-                            </center>
-                        </div>
                         <span class="input-group-btn">
                             <button class="btn green" type="button">Ir!</button>
                         </span>
@@ -94,8 +89,11 @@
 
 <div class="row center" ng-show="vendedorList == null || vendedorList <= 0">
     <div class="col-md-6 form  col-md-offset-3">
-        <h1 class="text-danger">No hay vendedores con: {{q}}</h1>
+        <h1 class="text-danger">No hay vendedores con: {{q}} </h1>
+        <!--<br>
+        <h1 class="text-danger" align="center"><i class="fa fa-spin fa-spinner fa-2x"></i></h1>-->
     </div>
+
 </div>
 
 <div class="row" ng-hide="vendedorList == null || vendedorList <= 0">
@@ -179,4 +177,3 @@
         <!-- END PORTLET-->
     </div>
 </div>
-<script 
