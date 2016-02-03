@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en" data-ng-app="CapitalBusApp">
@@ -35,7 +36,6 @@
 	<link rel="shortcut icon" href="favicon.ico" /> </head>
 
 <body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
-
 <!-- BEGIN PAGE SPINNER -->
 <div ng-spinner-bar class="page-spinner-bar">
 	<div class="bounce1"></div>
@@ -81,7 +81,7 @@
 	<![endif]-->
 
 <script type="text/javascript">
-	var BASE_URL =  '/capitalbus/';
+	var BASE_URL =  '${request.contextPath}/';
 	var BASE_RESOURCES =  'rs';
 </script>
 

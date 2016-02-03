@@ -116,16 +116,15 @@ log4j.main = {
             'net.sf.ehcache.hibernate'
 }
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-
-        '/**'            : ['permitAll'],
-        '/angular-app/**': ['permitAll'],
-        '/css/**'        : ['permitAll'],
-        '/images/**'     : ['permitAll'],
-        '/js/**'         : ['permitAll'],
-        '/rs/**'         : ['permitAll'],
-        '/tpl/**'        : ['permitAll'],
-        '/views/**'      : ['permitAll'],
-        '/**/js/**'      : ['permitAll'],
-        '/**/css/**'     : ['permitAll']
+        '/**'              : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/angular-app/**': ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/css/**'        : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/images/**'     : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/js/**'         : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/rs/**'         : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/tpl/**'        : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/views/**'      : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/**/js/**'      : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/**/css/**'     : ['ROLE_ADMIN', 'ROLE_VENDEDOR']
 ]
 grails.plugin.springsecurity.securityConfigType = "Annotation"
