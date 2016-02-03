@@ -98,9 +98,32 @@ INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(250.0,2,3);
 ALTER TABLE `capital`.`ct_pulcera` ADD COLUMN `fecha_creacion` date NULL AFTER `costo`;
 
 
-
+/* para seguridad */
 ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `account_expired` tinyint(1) NULL AFTER `permisos`;
 ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `account_locked` tinyint(1) NULL AFTER `account_expired`;
 ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `password_expired` tinyint(1) NULL AFTER `account_locked`;
 
+CREATE TABLE `capital`.`ct_role` (
+  `id_role` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `authority` VARCHAR(255) NOT NULL UNIQUE,
+  PRIMARY KEY (`id_role`));
 
+
+CREATE TABLE `capital`.`rl_user_role` (
+  `id_usuario` INT(10) UNSIGNED NOT NULL,
+  `id_role` INT(10) UNSIGNED  NOT NULL);
+
+ALTER TABLE rl_user_role
+ADD CONSTRAINT fk_rl_usuario_role_usuario FOREIGN KEY (id_usuario)
+REFERENCES ct_usuario (id_usuario) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE rl_user_role
+ADD CONSTRAINT fk_rl_usuario_role_role FOREIGN KEY (id_role)
+REFERENCES ct_role (id_role) ON UPDATE CASCADE ON DELETE CASCADE;
+
+INSERT INTO ct_role (authority) VALUES("ROLE_ADMIN");
+INSERT INTO ct_role (authority) VALUES("ROLE_SOCIO");
+INSERT INTO ct_role (authority) VALUES("ROLE_SUCURSAL");
+INSERT INTO ct_role (authority) VALUES("ROLE_VENDEDOR");
+INSERT INTO ct_role (authority) VALUES("ROLE_ONLINE");
