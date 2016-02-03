@@ -35,7 +35,7 @@ class VendedorController {
                 eq("activo", true)
             }
             or {
-                like("correo", "%" + search + "%")
+                like("username", "%" + search + "%")
                 like("nombres", "%" + search + "%")
             }
             maxResults(25)
