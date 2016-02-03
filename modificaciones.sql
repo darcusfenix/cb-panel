@@ -1,13 +1,12 @@
 use capital;
-/*
+
 ALTER TABLE `capital`.`ct_pulcera` 
 ADD COLUMN `vendedor` INT(10) UNSIGNED NULL AFTER `fecha_activacion`;
-
 
 ALTER TABLE ct_pulcera
   ADD CONSTRAINT fk_ct_pulcera_ct_vendedor FOREIGN KEY (vendedor) 
   REFERENCES ct_vendedor (id_vendedor) ON DELETE NO ACTION ON UPDATE NO ACTION;
-  */
+
 CREATE TABLE `capital`.`ct_persona` (
   `id_persona` INT NOT NULL,
   `nombre` VARCHAR(255) NOT NULL,
@@ -27,12 +26,12 @@ CREATE TABLE `capital`.`rl_persona_duracion` (
 
 ALTER TABLE rl_persona_duracion
   ADD CONSTRAINT fk_rl_persona_duracion_ct_persona FOREIGN KEY (id_persona) 
-  REFERENCES ct_persona (id_persona) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  REFERENCES ct_persona (id_persona) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 ALTER TABLE rl_persona_duracion
   ADD CONSTRAINT fk_rl_persona_duracion_ct_duracion FOREIGN KEY (id_horas) 
-  REFERENCES ct_duracion (id_horas) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  REFERENCES ct_duracion (id_horas) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 ALTER TABLE `capital`.`ct_pulcera` 
@@ -51,16 +50,17 @@ CHANGE COLUMN `id_costo_pulsera` `id_costo_pulsera` INT(11) UNSIGNED NOT NULL ;
 
 ALTER TABLE ct_costo_pulsera
   ADD CONSTRAINT fk_ct_costo_pulsera_id_persona FOREIGN KEY (id_persona) 
-  REFERENCES rl_persona_duracion (id_persona) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  REFERENCES rl_persona_duracion (id_persona) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE ct_costo_pulsera
   ADD CONSTRAINT fk_ct_costo_pulsera_id_horas FOREIGN KEY (id_horas) 
-  REFERENCES rl_persona_duracion (id_horas) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  REFERENCES rl_persona_duracion (id_horas) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 ALTER TABLE ct_pulcera
   ADD CONSTRAINT fk_ct_pulcera_ct_costo_pulsera FOREIGN KEY (costo) 
-  REFERENCES ct_costo_pulsera (id_costo_pulsera) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  REFERENCES ct_costo_pulsera (id_costo_pulsera) ON UPDATE CASCADE ON DELETE CASCADE;
+
 
 
 ALTER TABLE `capital`.`ct_duracion` 
@@ -96,4 +96,11 @@ INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(180.0,2,2);
 INSERT INTO ct_costo_pulsera (precio,id_persona, id_horas) VALUES(250.0,2,3);
 
 ALTER TABLE `capital`.`ct_pulcera` ADD COLUMN `fecha_creacion` date NULL AFTER `costo`;
+
+
+
+ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `account_expired` tinyint(1) NULL AFTER `permisos`;
+ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `account_locked` tinyint(1) NULL AFTER `account_expired`;
+ALTER TABLE `capital`.`ct_usuario` ADD COLUMN `password_expired` tinyint(1) NULL AFTER `account_locked`;
+
 
