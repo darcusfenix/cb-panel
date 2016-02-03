@@ -115,3 +115,25 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+
+        '/'                     : ['permitAll'],
+        '/angular-app'          : ['permitAll'],
+        '/css'                  : ['permitAll'],
+        '/js'                   : ['permitAll'],
+        '/rs'                   : ['permitAll'],
+        '/tpl'                  : ['permitAll'],
+        '/views'                : ['permitAll'],
+        '/registro'             : ['permitAll'],
+        '/registro/**'          : ['permitAll'],
+        '/static/*'             : ['permitAll'],
+        '/**/js/**'             : ['permitAll'],
+        '/**/css/**'            : ['permitAll'],
+        '/images'               : ['permitAll'],
+        '/js/**'                : ['permitAll'],
+        '/favicon.ico'          : ['permitAll'],
+        '/examen/**'            : ['permitAll'],
+        '/assets/**'            : ['permitAll'],
+        '/imgFiles/**'          : ['permitAll'],
+]
+grails.plugin.springsecurity.securityConfigType = "Annotation"
