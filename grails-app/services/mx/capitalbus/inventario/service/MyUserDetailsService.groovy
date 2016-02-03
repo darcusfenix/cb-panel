@@ -2,6 +2,7 @@ package mx.capitalbus.inventario.service
 
 
 import mx.capitalbus.inventario.domain.User
+import mx.capitalbus.inventario.domain.Role
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.userdetails.GrailsUser
@@ -10,6 +11,8 @@ import grails.transaction.Transactional
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
+
+
 
 class MyUserDetailsService implements GrailsUserDetailsService {
 
@@ -33,9 +36,9 @@ class MyUserDetailsService implements GrailsUserDetailsService {
             new GrantedAuthorityImpl(it.authority)
         }
 
-        return new MyUserDetails(user.username, user.password, user.enabled,
+        return new MyUserDetails(user.username, user.password, user.activo,
                 !user.accountExpired, !user.passwordExpired,
                 !user.accountLocked, authorities ?: NO_ROLES, user.id,
-                user.name + " " + user.lastName)
+                user.username)
     }
 }

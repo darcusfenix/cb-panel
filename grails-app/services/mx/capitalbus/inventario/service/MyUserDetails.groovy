@@ -1,9 +1,13 @@
 package mx.capitalbus.inventario.service
 
+/**
+ * Created by darcusfenix on 2/2/16.
+ */
 import grails.plugin.springsecurity.userdetails.GrailsUser
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.User
+
 
 class MyUserDetails extends GrailsUser {
 
