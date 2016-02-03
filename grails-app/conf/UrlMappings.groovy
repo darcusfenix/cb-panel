@@ -11,10 +11,5 @@ class UrlMappings {
 
         "500"(view:'/error')
 
-        "/2706Administracion"(view: "/index")
-        "500"(view: '/error')
-        "/"(view: '/registro')
-        "/registro"(view: '/registro')
-
 	}
 }
