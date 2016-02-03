@@ -1,18 +1,22 @@
 package mx.capitalbus.inventario.service
 
-import grails.transaction.Transactional
+
 import mx.capitalbus.inventario.domain.User
+
+import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.userdetails.GrailsUser
+import grails.plugin.springsecurity.userdetails.GrailsUserDetailsService
+import grails.transaction.Transactional
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 
-@Transactional
 class MyUserDetailsService implements GrailsUserDetailsService {
 
     static final List NO_ROLES = [new GrantedAuthorityImpl(SpringSecurityUtils.NO_ROLE)]
 
 
-    UserDetails loadUserByUsername(String correo, boolean loadRoles)
+    UserDetails loadUserByUsername(String username, boolean loadRoles)
             throws UsernameNotFoundException {
         return loadUserByUsername(username)
     }

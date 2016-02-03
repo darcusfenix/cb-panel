@@ -21,15 +21,6 @@ class User implements Serializable {
     String verificacion
     boolean activo
     String permisos
-    /*
-    String username
-   String password
-   boolean enabled = true
-
-   boolean accountExpired
-   boolean accountLocked
-   boolean passwordExpired
-    * */
 
     boolean accountExpired
     boolean accountLocked

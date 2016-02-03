@@ -1,19 +1,20 @@
 package mx.capitalbus.inventario.service
 
-import org.springframework.security.core.GrantedAuthority
+import grails.plugin.springsecurity.userdetails.GrailsUser
 
-/**
- * Created by grupobecm on 02/02/16.
- */
-class MyUserDetails {
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.userdetails.User
+
+class MyUserDetails extends GrailsUser {
+
     final String fullName
 
-    MyUserDetails(String correo, String password, boolean enabled,
+    MyUserDetails(String username, String password, boolean enabled,
                   boolean accountNonExpired, boolean credentialsNonExpired,
                   boolean accountNonLocked,
                   Collection<GrantedAuthority> authorities,
                   long id, String fullName) {
-        super(correo, password, enabled, accountNonExpired,
+        super(username, password, enabled, accountNonExpired,
                 credentialsNonExpired, accountNonLocked, authorities, id)
 
         this.fullName = fullName

@@ -98,7 +98,10 @@ class UserRole implements Serializable {
     }
 
     static mapping = {
+        table 'rl_user_role'
         id composite: ['user', 'role']
+        user column: 'id_usuario'
+        role column: 'id_role'
         version false
     }
 }

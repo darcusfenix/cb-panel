@@ -5,7 +5,7 @@ import mx.capitalbus.inventario.domain.CostoPulsera
 import mx.capitalbus.inventario.domain.Duracion
 import mx.capitalbus.inventario.domain.DuracionPersona
 import mx.capitalbus.inventario.domain.Persona
-import org.springframework.security.access.annotation.Secured
+import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
 class CostoPulseraController {

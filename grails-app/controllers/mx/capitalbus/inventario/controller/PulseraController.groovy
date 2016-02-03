@@ -4,7 +4,7 @@ import grails.converters.JSON
 import groovy.json.JsonSlurper
 import mx.capitalbus.inventario.domain.Pulsera
 import mx.capitalbus.inventario.domain.Vendedor
-import org.springframework.security.access.annotation.Secured
+import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
 

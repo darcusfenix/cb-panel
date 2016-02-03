@@ -2,7 +2,8 @@ package mx.capitalbus.inventario.controller
 
 import grails.converters.JSON
 import mx.capitalbus.inventario.domain.Duracion
-import org.springframework.security.access.annotation.Secured
+import grails.plugin.springsecurity.annotation.Secured
+
 
 @Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
 
