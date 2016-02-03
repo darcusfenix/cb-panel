@@ -6,7 +6,6 @@ import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 @ToString(cache=true, includeNames=true, includePackage=false)
-
 class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1
@@ -15,7 +14,7 @@ class UserRole implements Serializable {
     Role role
 
     UserRole(User u, Role r) {
-        this()
+        //this()
         user = u
         role = r
     }
@@ -26,7 +25,8 @@ class UserRole implements Serializable {
             return false
         }
 
-        other.user?.id == user?.id && other.role?.id == role?.id
+        other.user?.id == user?.id &&
+                other.role?.id == role?.id
     }
 
     @Override

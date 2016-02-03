@@ -13,8 +13,7 @@ class Role implements Serializable{
     Integer id
     String authority
 
-    Role (String authority) {
-        this()
+    Role(String authority){
         this.authority = authority
     }
 
