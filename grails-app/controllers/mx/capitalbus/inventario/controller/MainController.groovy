@@ -4,6 +4,9 @@ import grails.converters.JSON
 import mx.capitalbus.inventario.domain.Pulsera
 import mx.capitalbus.inventario.domain.PulseraStatus
 import mx.capitalbus.inventario.domain.Vendedor
+import org.springframework.security.access.annotation.Secured
+
+@Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
 
 class MainController {
 
