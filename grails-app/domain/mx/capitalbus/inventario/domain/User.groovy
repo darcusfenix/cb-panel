@@ -11,6 +11,15 @@ class User {
     String verificacion
     boolean activo
     String permisos
+    /*
+    String username
+   String password
+   boolean enabled = true
+
+   boolean accountExpired
+   boolean accountLocked
+   boolean passwordExpired
+    * */
 
 
     static constraints = {

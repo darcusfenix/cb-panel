@@ -3,7 +3,7 @@ dataSource {
     jmxExport = true
     driverClassName = "com.mysql.jdbc.Driver"
     dialect = "org.hibernate.dialect.MySQLDialect"
-    username = "root"
+    username = "becm"
     password = "2706"
     logSql = true
 }
@@ -24,7 +24,7 @@ environments {
             dbCreate = "" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
             //url = 'jdbc:mysql://localhost/test'
-            url = 'jdbc:mysql://localhost/capital'
+            url = 'jdbc:mysql://192.168.0.11/capital'
         }
     }
     test {
