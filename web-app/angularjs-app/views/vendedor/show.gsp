@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="col-md-7 value">
-                        {{vendedor.correo}}
+                        {{vendedor.username}}
                     </div>
                 </div>
 

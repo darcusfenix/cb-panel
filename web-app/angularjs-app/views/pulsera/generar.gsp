@@ -160,7 +160,7 @@
                                 <a href="javascript:;" class="primary-link">{{vendedor.nombres}}</a>
                             </td>
                             <td>{{vendedor.apellidos}}</td>
-                            <td>{{vendedor.correo}}</td>
+                            <td>{{vendedor.username}}</td>
                             <td>{{vendedor.telefono}}</td>
                             <td class="text-center">
                                 <a href="#/vendedor/{{vendedor.id}}/historial" class="btn btn-success">Ver historial</a>
