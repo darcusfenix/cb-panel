@@ -5,7 +5,7 @@ import mx.capitalbus.inventario.domain.DuracionTour
 import mx.capitalbus.inventario.domain.Tour
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
+@Secured(['permitAll'])
 
 class DuracionTourController {
 

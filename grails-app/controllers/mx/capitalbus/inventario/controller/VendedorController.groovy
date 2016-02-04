@@ -5,11 +5,10 @@ import mx.capitalbus.inventario.domain.TipoUsuario
 import mx.capitalbus.inventario.domain.Vendedor
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
+@Secured(['permitAll'])
 
 class VendedorController {
 
-    def index() {}
 
     def show(Integer id){
         render(  Vendedor.findById(id ?: params.int("id")) as JSON)

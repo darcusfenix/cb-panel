@@ -7,7 +7,7 @@ import mx.capitalbus.inventario.domain.DuracionPersona
 import mx.capitalbus.inventario.domain.Persona
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_VENDEDOR'])
+@Secured(['permitAll'])
 class CostoPulseraController {
 
     def index() {

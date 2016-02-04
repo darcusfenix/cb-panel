@@ -115,16 +115,27 @@ log4j.main = {
             'org.hibernate',
             'net.sf.ehcache.hibernate'
 }
+
+
+grails.plugin.springsecurity.securityConfigType = "Annotation"
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        '/**'              : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/angular-app/**': ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+
+        '/':               ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
+        '/index':          ['permitAll'],
+        '/index.gsp':      ['permitAll'],
+        '/assets/**':      ['permitAll'],
+        '/**/js/**':       ['permitAll'],
+        '/**/css/**':      ['permitAll'],
+        '/**/images/**':   ['permitAll'],
+        '/**/favicon.ico': ['permitAll'],
+
+        '/angularjs-app/**': ['permitAll'],/*
         '/css/**'        : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
         '/images/**'     : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/js/**'         : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/rs/**'         : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/tpl/**'        : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/views/**'      : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/**/js/**'      : ['ROLE_ADMIN', 'ROLE_VENDEDOR'],
-        '/**/css/**'     : ['ROLE_ADMIN', 'ROLE_VENDEDOR']
+        '/js/**'         : ['ROLE_ADMIN', 'ROLE_VENDEDOR'], */
+        '/rs/**'         : ['permitAll'],
+        '/tpl/**'        : ['permitAll'],/*
+        '/views/**'      : ['ROLE_ADMIN', 'ROLE_VENDEDOR']
+        */
 ]
-grails.plugin.springsecurity.securityConfigType = "Annotation"
+
