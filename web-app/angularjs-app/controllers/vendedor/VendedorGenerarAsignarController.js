@@ -2,7 +2,7 @@
  * Created by darcusfenix on 1/26/16.
  */
 
-angular.module('CapitalBusApp').controller('VendedorShowController',
+angular.module('CapitalBusApp').controller('VendedorGenerarAsignarController',
     function ($rootScope,
               $scope,
               $http,
@@ -16,6 +16,7 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
 
         $scope.$on('$viewContentLoaded', function () {
             App.initAjax();
+            $scope.getThisVendedor();
         });
 
         $scope.error = [];
@@ -32,15 +33,29 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
         $scope.costo = 0.00;
         $scope.cantidad = 0;
 
+        $scope.getThisVendedor = function () {
+            App.blockUI(
+                {
+                    target: "#datos-personales",
+                    boxed: !0,
+                    message: "Cargando..."
+                });
+            App.blockUI(
+                {
+                    target: "#generar-pulseras",
+                    boxed: !0,
+                    message: "Cargando..."
+                });
+            $scope.vendedor = Vendedor.get({id: $stateParams.id}, function (data) {
+                $scope.vendedor = data;
+                App.unblockUI("#datos-personales");
+                $scope.getCostosPulsera();
+            }, function (err) {
+                $scope.error.flag = true;
+                $scope.error.message = err.data.message;
+            });
 
-
-        $scope.vendedor = Vendedor.get({id: $stateParams.id}, function (data) {
-            $scope.vendedor = data;
-            $scope.getCostosPulsera();
-        }, function (err) {
-            $scope.error.flag = true;
-            $scope.error.message = err.data.message;
-        });
+        };
 
         $scope.getCostosPulsera = function () {
             $scope.vendedores = CostoPulsera.query(function (data) {
@@ -65,6 +80,7 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
         $scope.getDuracion = function () {
             $scope.vendedores = Duracion.query(function (data) {
                 $scope.duracionList = data;
+                App.unblockUI("#generar-pulseras");
             }, function (err) {
                 $scope.error.flag = true;
             });
@@ -207,7 +223,10 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
 
         $scope.generarPulseras = function () {
 
-            App.blockUI({boxed:!0, message:"Generando y Asignando pulseras a "+$scope.vendedor.nombres +" "+ $scope.vendedor.apellidos+"..."});
+            App.blockUI({
+                boxed: !0,
+                message: "Generando y Asignando pulseras a " + $scope.vendedor.nombres + " " + $scope.vendedor.apellidos + "..."
+            });
 
             $scope.pulseraInstance.$save({
                 "json": $scope.generarJSON(),
@@ -219,7 +238,7 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
                 anchor.attr({
                     href: 'data:text/csv;charset=utf-8,' + encodeURIComponent(data.text),
                     target: '_blank',
-                    download: $scope.vendedor.nombres +'-'+ $scope.vendedor.apellidos + '.csv'
+                    download: $scope.vendedor.nombres + '-' + $scope.vendedor.apellidos + '.csv'
                 })[0].click();
 
             }, function (err) {
@@ -229,7 +248,7 @@ angular.module('CapitalBusApp').controller('VendedorShowController',
         $scope.generarJSON = function () {
             var json = '[';
             for (i = 0; i < $scope.pulseraList.length; i++) {
-                json += '{"vendedor":"'+$stateParams.id+'","cantidad": "'+$scope.pulseraList[i].cantidad+'", "idCosto": "'+$scope.pulseraList[i].costo+'"}';
+                json += '{"vendedor":"' + $stateParams.id + '","cantidad": "' + $scope.pulseraList[i].cantidad + '", "idCosto": "' + $scope.pulseraList[i].costo + '"}';
                 if (i < $scope.pulseraList.length - 1)
                     json += ','
             }
