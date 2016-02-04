@@ -117,15 +117,9 @@ log4j.main = {
 }
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
-        '/**'            : ['permitAll'],
-        '/angular-app/**': ['permitAll'],
-        '/css/**'        : ['permitAll'],
-        '/images/**'     : ['permitAll'],
-        '/js/**'         : ['permitAll'],
-        '/rs/**'         : ['permitAll'],
-        '/tpl/**'        : ['permitAll'],
-        '/views/**'      : ['permitAll'],
-        '/**/js/**'      : ['permitAll'],
-        '/**/css/**'     : ['permitAll']
+        '/**' : ['ROLE_ADMIN']
+
 ]
 grails.plugin.springsecurity.securityConfigType = "Annotation"
+grails.plugin.springsecurity.rejectIfNoRule = true
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false

@@ -56,7 +56,7 @@ grails.project.dependency.resolution = {
     plugins {
         // plugins for the build system only
         //build ":tomcat:7.0.55.2" // or ":tomcat:8.0.20"
-        compile "org.grails.plugins:tomcat:9.0.0.M1"
+
         build ':tomcat:8.0.30'
         //compile "org.grails.plugins:spring-security-core:2.0.0"
         compile ':spring-security-core:2.0.0'
@@ -77,11 +77,3 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
 }
-/*
-grails.reload.enabled = true
-grails.project.fork = [
-        test: false,
-        run: false,
-]
-
-*/
