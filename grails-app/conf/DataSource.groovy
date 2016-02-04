@@ -23,7 +23,7 @@ environments {
         dataSource {
             dbCreate = "" // one of 'create', 'create-drop', 'update', 'validate', ''
             logSql = true
-            url = 'jdbc:mysql://192.168.0.139/capital'
+            url = 'jdbc:mysql://localhost/capital'
         }
     }
     test {
