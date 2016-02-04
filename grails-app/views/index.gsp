@@ -110,17 +110,6 @@
 <script src="${resource(dir: 'angularjs-app', file:'App.js')}" type="text/javascript"></script>
 <script src="${resource(dir: 'angularjs-app/', file:'directives.js')}" type="text/javascript"></script>
 
-
-<script src="${resource(dir: 'angularjs-app/resources', file:'PulseraResource.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'angularjs-app/resources', file:'VendedorResource.js')}" type="text/javascript"></script>
-
-<script src="${resource(dir: 'angularjs-app/routes', file:'PulseraRoute.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'angularjs-app/routes', file:'VendedorRoute.js')}" type="text/javascript"></script>
-
-<script src="${resource(dir: 'angularjs-app/controllers', file:'VendedorController.js')}" type="text/javascript"></script>
-<script src="${resource(dir: 'angularjs-app/controllers', file:'PulseraController.js')}" type="text/javascript"></script>
-
-
 <!-- END APP LEVEL ANGULARJS SCRIPTS -->
 
 <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
