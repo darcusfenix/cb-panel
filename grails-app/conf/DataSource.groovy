@@ -5,7 +5,7 @@ dataSource {
     dialect = "org.hibernate.dialect.MySQLDialect"
     username = "root"
     password = "2706"
-    logSql = true
+
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -22,9 +22,8 @@ environments {
     development {
         dataSource {
             dbCreate = "" // one of 'create', 'create-drop', 'update', 'validate', ''
-            //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            //url = 'jdbc:mysql://localhost/test'
-            url = 'jdbc:mysql://localhost/capital'
+            logSql = true
+            url = 'jdbc:mysql://192.168.0.139/capital'
         }
     }
     test {
@@ -35,8 +34,9 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            dbCreate = ""
+            url = 'jdbc:mysql://localhost/capital'
+            logSql = false
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

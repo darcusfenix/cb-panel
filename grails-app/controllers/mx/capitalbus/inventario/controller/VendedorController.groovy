@@ -9,7 +9,6 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class VendedorController {
 
-    def index() {}
 
     def show(Integer id){
         render(  Vendedor.findById(id ?: params.int("id")) as JSON)
