@@ -59,7 +59,9 @@
 			<div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head"> </div>
 			<!-- END PAGE HEAD -->
 			<!-- BEGIN ACTUAL CONTENT -->
-			<div ui-view class="fade-in-up"> </div>
+			<div ui-view class="fade-in-up">
+
+			</div>
 			<!-- END ACTUAL CONTENT -->
 		</div>
 	</div>
@@ -73,7 +75,6 @@
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 
 <!-- BEGIN CORE JQUERY PLUGINS -->
-
 
 <!--[if lt IE 9]>
 	<script src="${resource(dir: 'rs/global/plugins', file: 'respond.min.js')}"></script>

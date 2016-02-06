@@ -9,6 +9,11 @@ class UrlMappings {
 
         "/"(view:"/index")
 
+
+        //REST full
+
+        "/vendedor/$id/pulseras/total"(controller: "Vendedor", action: "pulseras")
+
         "500"(view:'/error')
 
 	}
