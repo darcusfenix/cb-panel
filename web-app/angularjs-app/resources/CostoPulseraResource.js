@@ -7,15 +7,15 @@ angular.module('CapitalBusApp').factory('CostoPulsera', function ($resource) {
     return $resource('costoPulsera/:id', {id: '@id'}, {
         get: {
             method: 'GET',
-            url: 'costoPulsera/show/:id'
+            url: 'costoPulsera/:id'
         },
         update: {
             method: 'PUT',
-            url: 'costoPulsera/update/'
+            url: 'costoPulsera/'
         },
         delete: {
             method: 'DELETE',
-            url: 'costoPulsera/delete/:id'
+            url: 'costoPulsera/:id'
         },
         create: {
             method: 'GET',
@@ -23,7 +23,7 @@ angular.module('CapitalBusApp').factory('CostoPulsera', function ($resource) {
         },
         save: {
             method: 'POST',
-            url: 'costoPulsera/save'
+            url: 'costoPulsera/'
         }
     });
 });

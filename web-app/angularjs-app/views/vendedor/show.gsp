@@ -1,74 +1,3 @@
-<!--
-<div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="dashboard-stat blue">
-            <div class="visual">
-                <i class="fa fa-comments"></i>
-            </div>
-
-            <div class="details">
-                <div class="number">1349</div>
-
-                <div class="desc">New Feedbacks</div>
-            </div>
-            <a class="more" href="#">View more
-                <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="dashboard-stat red">
-            <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
-            </div>
-
-            <div class="details">
-                <div class="number">12,5M$</div>
-
-                <div class="desc">Total Profit</div>
-            </div>
-            <a class="more" href="#">View more
-                <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="dashboard-stat green">
-            <div class="visual">
-                <i class="fa fa-shopping-cart"></i>
-            </div>
-
-            <div class="details">
-                <div class="number">549</div>
-
-                <div class="desc">New Orders</div>
-            </div>
-            <a class="more" href="#">View more
-                <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="dashboard-stat purple">
-            <div class="visual">
-                <i class="fa fa-globe"></i>
-            </div>
-
-            <div class="details">
-                <div class="number">+89%</div>
-
-                <div class="desc">Brand Popularity</div>
-            </div>
-            <a class="more" href="#">View more
-                <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-</div>
--->
 
 <div class="row center" ng-show="error.flag">
     <div class="col-md-6 form  col-md-offset-3">
@@ -76,10 +5,10 @@
     </div>
 </div>
 
-<div class="row" ng-hide="error.flag">
-    <div class="col-md-8">
+<div class="row" ng-hide="error.flag" >
+    <div class="col-md-8" >
         <!-- BEGIN PORTLET-->
-        <div class="portlet light bordered ">
+        <div class="portlet light bordered " id="datos-personales">
             <div class="portlet-title">
                 <div class="caption caption-md">
                     <i class="icon-bar-chart font-red"></i>
@@ -88,49 +17,8 @@
                 </div>
             </div>
 
-            <div class="portlet-body">
+            <div class="portlet-body"  data-ng-include="'angularjs-app/views/vendedor/tpl/datos-personales.gsp'">
 
-                <div class="row static-info">
-                    <div class="col-md-5 name">
-                        Nombres:
-                    </div>
-
-                    <div class="col-md-7 value">
-                        {{vendedor.nombres}}
-                    </div>
-                </div>
-
-                <div class="row static-info">
-                    <div class="col-md-5 name">
-                        Apellidos:
-                    </div>
-
-                    <div class="col-md-7 value">
-                        {{vendedor.apellidos}}
-                    </div>
-                </div>
-
-                <div class="row static-info">
-                    <div class="col-md-5 name">
-                        correo electrónico:
-                    </div>
-
-                    <div class="col-md-7 value">
-                        {{vendedor.username}}
-                    </div>
-                </div>
-
-                <div class="row static-info">
-                    <div class="col-md-5 name">
-                        Estado:
-                    </div>
-
-                    <div class="col-md-7 value">
-                        <span class="label label-success "
-                              ng-class="vendedor.activo ? 'label-success' : 'label-danger'">
-                            {{ vendedor.activo ? 'Activo': 'bloqueado'}}</span>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- END PORTLET-->
@@ -148,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="portlet-body form">
+            <div class="portlet-body form" id="generar-pulseras">
                 <div class="row form-horizontal">
                     <div class="col-md-5 form-body">
                         <div class="row text-center">
@@ -211,7 +99,7 @@
                         <div class="row text-center">
                             <h4>Resumen de Pulseras a Generar y Asignar a: <b>{{vendedor.nombres}} {{vendedor.apellidos}}</b></h4>
                         </div>
-                        <div  data-ng-include="'angularjs-app/views/vendedor/resumen-generar.gsp'">
+                        <div  data-ng-include="'angularjs-app/views/vendedor/tpl/resumen-generar.gsp'">
 
                         </div>
                         <div class="row text-right">
@@ -256,7 +144,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Confirmar</h4>
             </div>
-            <div class="modal-body" data-ng-include="'angularjs-app/views/vendedor/resumen-generar.gsp'">
+            <div class="modal-body" data-ng-include="'angularjs-app/views/vendedor/tpl/resumen-generar.gsp'">
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn red" >Cancelar</button>

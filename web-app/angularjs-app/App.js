@@ -103,11 +103,6 @@ angular.module('CapitalBusApp').controller('IndexController', function($rootScop
         // initialize core components
         App.initAjax();
     });
-
-    // set sidebar closed and body solid layout mode
-    $rootScope.settings.layout.pageContentWhite = true;
-    $rootScope.settings.layout.pageBodySolid = false;
-    $rootScope.settings.layout.pageSidebarClosed = false;
 });
 
 /* Init global settings and run the app */
@@ -122,7 +117,30 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
         url: "/",
         templateUrl: "angularjs-app/views/index/index.gsp",
         data: {pageTitle: 'Panel Inventario Vendedores'},
-        controller: "IndexController"
+        controller: "IndexController",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'CapitalBusApp',
+                    insertBefore: '#ng_load_plugins_before',
+                    files: [
+
+                        BASE_URL + 'angularjs-app/resources/CostoPulseraResource.js',
+                        BASE_URL + 'angularjs-app/resources/DuracionResource.js',
+                        BASE_URL + 'angularjs-app/resources/PersonaResource.js',
+                        BASE_URL + 'angularjs-app/resources/PulseraResource.js',
+                        BASE_URL + 'angularjs-app/resources/VendedorResource.js',
+
+                        BASE_URL + 'angularjs-app/controllers/vendedor/VendedorBuscarController.js',
+                        BASE_URL + 'angularjs-app/controllers/vendedor/VendedorGenerarAsignarController.js',
+                        BASE_URL + 'angularjs-app/controllers/vendedor/VendedorReporteController.js',
+
+                        BASE_URL + 'angularjs-app/routes/PulseraRoute.js',
+                        BASE_URL + 'angularjs-app/routes/VendedorRoute.js'
+                    ]
+                });
+            }]
+        }
     });
 
 }]);

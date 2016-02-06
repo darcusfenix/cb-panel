@@ -25,10 +25,15 @@ angular.module('CapitalBusApp').factory('Vendedor', function ($resource) {
             method: 'POST',
             url: 'vendedor/save'
         },
-        getByEmail:{
-            method : 'GET',
-            isArray:true,
+        getByEmail: {
+            method: 'GET',
+            isArray: true,
             url: 'vendedor/email/'
         },
+        getTotalPulseras: {
+            method: 'GET',
+            isArray: true,
+            url: '/vendedor/:id/pulseras/total'
+        }
     });
 });
