@@ -119,6 +119,194 @@
     </div>
 </div>
 
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-cogs"></i>Mis generaciones y asignaciones</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="javascript:;" class="reload"> </a>
+            <a href="javascript:;" class="remove"> </a>
+        </div>
+    </div>
+    <div class="portlet-body" id="p-b-vendedor-list">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Nombre </th>
+                    <th> Apellido </th>
+                    <th> Usuario</th>
+                    <th> Otro</th>
+                    <th> Fecha </th>
+                    <th> Total de pulseras asignadas  </th>
+                    <th> Resumen  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="vendedor in vendedorList">
+                    <td> {{vendedor.id}} </td>
+                    <td> {{vendedor.nombres}} </td>
+                    <td> {{vendedor.apellidos}} </td>
+                    <td> {{vendedor.username}} </td>
+                    <td> </td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+                <tr >
+                    <td>  </td>
+                    <td>  </td>
+                    <td>  </td>
+                    <td> </td>
+                    <td>  </td>
+                    <td>  </td>
+                    <td> Total </td>
+                    <td class="text-center">
+                        <a href="#/vendedor/{{vendedor.id}}/reporte-pulseras" class="btn btn-success">Resumen</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="table-scrollable table-scrollable-borderless">
+        <table class="table table-hover table-light">
+            <tr class="uppercase">
+                <th class="bold font-green text-center">Tipo de Persona</th>
+                <th class="bold font-green text-center">
+                    L-V
+                </th>
+                <th class="bold font-green text-center">
+                    Fines de semana
+                </th>
+                <th class="bold font-green text-center">Total</th>
+            </tr>
+
+
+            <tr >
+                <th class="font-blue text-uppercase  text-center">adulto</th>
+                <th class=" text-center" ng-repeat="duracion in duracionList">
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+            </tr>
+            <tr >
+                <th class="font-blue text-uppercase  text-center">NIÑO</th>
+                <th class=" text-center" >
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+            </tr>
+            <tr>
+                <th class="font-blue text-uppercase  text-center">Total</th>
+                <th class="bold font-green text-center" >
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+                <th class="text-center bold font-green">
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="portlet light bordered ">
+
+    <div class="portlet-body" id="rs-busqueda">
+
+        <div class="table-scrollable table-scrollable-borderless">
+            <table class="table table-hover table-light">
+                <thead>
+                <tr class="uppercase">
+                    <th  class="text-center bold font-green">Personas</th>
+                    <th colspan="2" class="text-center bold font-green">Lunes - Viernes</th>
+                    <th colspan="2" class="text-center bold font-green">Fin de semana</th>
+                    <th class="bold font-green">Total</th>
+                </tr>
+                <tr class="uppercase">
+                    <th class="bold font-green"></th>
+                    <th class="bold font-green">No Venta</th>
+                    <th class="bold font-green">Venta</th>
+                    <th class="bold font-green">No Venta</th>
+                    <th class="bold font-green">Venta</th>
+                    <th class="text-center bold font-green"></th>
+                </tr>
+                </thead>
+                <tr >
+                    <th class="font-blue text-uppercase  text-center">ADULTO</th>
+                    <th class=" " >
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                </tr>
+                <tr >
+                    <th class="font-blue text-uppercase  text-center">Niño</th>
+                    <th class=" " >
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                </tr>
+                <tr >
+                    <th class="font-blue text-uppercase  text-center">Total</th>
+                    <th class="" >
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                    <th class="">
+                        0
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
