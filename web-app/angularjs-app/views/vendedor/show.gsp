@@ -174,59 +174,76 @@
 </div>
 
 
-
-<div class="row">
-    <div class="table-scrollable table-scrollable-borderless">
-        <table class="table table-hover table-light">
-            <tr class="uppercase">
-                <th class="bold font-green text-center">Tipo de Persona</th>
-                <th class="bold font-green text-center">
-                    L-V
-                </th>
-                <th class="bold font-green text-center">
-                    Fines de semana
-                </th>
-                <th class="bold font-green text-center">Total</th>
-            </tr>
-
-
-            <tr >
-                <th class="font-blue text-uppercase  text-center">adulto</th>
-                <th class=" text-center" ng-repeat="duracion in duracionList">
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-            </tr>
-            <tr >
-                <th class="font-blue text-uppercase  text-center">NIÑO</th>
-                <th class=" text-center" >
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-            </tr>
-            <tr>
-                <th class="font-blue text-uppercase  text-center">Total</th>
-                <th class="bold font-green text-center" >
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-                <th class="text-center bold font-green">
-                </th>
-            </tr>
-        </table>
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-cogs"></i>Mis generaciones y asignaciones</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="javascript:;" class="reload"> </a>
+            <a href="javascript:;" class="remove"> </a>
+        </div>
     </div>
+        <div class="table-scrollable table-scrollable-borderless">
+            <table class="table table-hover table-light">
+                <tr class="uppercase">
+                    <th class="bold font-green text-center">Tipo de Persona</th>
+                    <th class="bold font-green text-center">
+                        L-V
+                    </th>
+                    <th class="bold font-green text-center">
+                        Fines de semana
+                    </th>
+                    <th class="bold font-green text-center">Total</th>
+                </tr>
+
+
+                <tr >
+                    <th class="font-blue text-uppercase  text-center">adulto</th>
+                    <th class=" text-center" ng-repeat="duracion in duracionList">
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                </tr>
+                <tr >
+                    <th class="font-blue text-uppercase  text-center">NIÑO</th>
+                    <th class=" text-center" >
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="font-blue text-uppercase  text-center">Total</th>
+                    <th class="bold font-green text-center" >
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                    <th class="text-center bold font-green">
+                    </th>
+                </tr>
+            </table>
+        </div>
 </div>
 
 
 
-<div class="portlet light bordered ">
 
-    <div class="portlet-body" id="rs-busqueda">
-
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-cogs"></i>Mis generaciones y asignaciones</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="javascript:;" class="reload"> </a>
+            <a href="javascript:;" class="remove"> </a>
+        </div>
+    </div>
         <div class="table-scrollable table-scrollable-borderless">
             <table class="table table-hover table-light">
                 <thead>
@@ -301,8 +318,8 @@
                 </tr>
             </table>
         </div>
-    </div>
 </div>
+
 
 
 
