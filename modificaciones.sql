@@ -130,3 +130,6 @@ INSERT INTO ct_role (authority) VALUES("ROLE_ONLINE");
 
 UPDATE ct_usuario set  account_expired = FALSE, account_locked = FALSE , password_expired = FALSE ;
 insert into ct_usuario(id_tipo,correo,passwd,activo,account_expired, account_locked, password_expired) VALUES(1,"juan@gmail.com","111",true,false,false,false);
+
+ALTER TABLE `capital`.`ct_pulcera`
+CHANGE COLUMN `fecha_creacion` `fecha_creacion` datetime NULL ;
