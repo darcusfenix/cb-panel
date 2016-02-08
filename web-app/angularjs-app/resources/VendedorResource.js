@@ -33,7 +33,12 @@ angular.module('CapitalBusApp').factory('Vendedor', function ($resource) {
         getTotalPulseras: {
             method: 'GET',
             isArray: true,
-            url: '/vendedor/:id/pulseras/total'
+            url: 'vendedor/:id/pulseras/total'
+        },
+        getAsignaciones: {
+            method: 'GET',
+            isArray: true,
+            url: 'vendedor/:id/pulseras/asignaciones'
         }
     });
 });
