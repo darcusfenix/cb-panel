@@ -2,7 +2,7 @@ package mx.capitalbus.inventario.domain
 
 class Duracion {
 
-    Integer duracion
+    String duracion
 
     static constraints = {
     }

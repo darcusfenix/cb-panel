@@ -51,37 +51,24 @@ class VendedorController {
     }
 
     def resumenAsignaciones() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("2016-02-08 00:00:00");
         def v = Vendedor.findById(params.int("id"))
         def pf = params.list("f")
         def f
 
         if (pf != null) {
             f = formatter.parse(pf)
-
             def costos = CostoPulsera.list()
-
+            def map = [:]
             costos.each { costo ->
-                        log.error(costo)
+                def c = Pulsera.countByVendedorAndFechaCreacionAndCostoPulsera(v, f, costo)
+                map.put(costo.id,c)
             }
-
-          //  Pulsera.countByVendedorAndFechaCreacionAndCostoPulsera(v,f,CostoPulsera.findById(1))
-        }
-        /*
-        if (v != null && f != null) {
-            def p = Pulsera.createCriteria()
-            def results = p {
-                and {
-                    eq("vendedor", v)
-                    eq("fechaCreacion", f)
-                }
-            }
-            render(results as JSON)
+            render (map as JSON)
         } else {
             response.sendError(404)
             render([message: "error"] as JSON)
         }
-*/
     }
 
     def show(Integer id) {
