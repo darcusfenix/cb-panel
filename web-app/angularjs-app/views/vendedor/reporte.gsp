@@ -12,7 +12,7 @@
 
 <div class="row" ng-hide="error.flag" >
     <div class="col-md-8" >
-        <div class="portlet light bordered " id="datos-personales">
+        <div class="portlet light bordered " id=".-personales">
             <div class="portlet-title">
                 <div class="caption caption-md">
                     <i class="icon-bar-chart font-red"></i>
@@ -20,9 +20,7 @@
 
                 </div>
             </div>
-
             <div class="portlet-body"  data-ng-include="'angularjs-app/views/vendedor/tpl/datos-personales.gsp'">
-
             </div>
         </div>
     </div>

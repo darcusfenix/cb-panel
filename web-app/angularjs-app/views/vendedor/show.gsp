@@ -61,7 +61,7 @@
                             <div class="col-md-9">
                                 <select ng-init="duracionList[0].id"
                                         ng-model="idDuracion"
-                                        ng-options=" duracion.id as (duracion.duracion + '  Horas') for duracion in duracionList "
+                                        ng-options=" duracion.id as duracion.duracion for duracion in duracionList "
                                         ng-change="updateCosto()"
                                         required class="form-control text-uppercase">
                                 </select>
