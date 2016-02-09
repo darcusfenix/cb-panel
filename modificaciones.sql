@@ -133,3 +133,6 @@ insert into ct_usuario(id_tipo,correo,passwd,activo,account_expired, account_loc
 
 ALTER TABLE `capital`.`ct_pulcera`
 CHANGE COLUMN `fecha_creacion` `fecha_creacion` datetime NULL ;
+
+ALTER TABLE `capital`.`ct_duracion`
+CHANGE COLUMN `total_horas` `total_horas` VARCHAR(255) NULL ;
